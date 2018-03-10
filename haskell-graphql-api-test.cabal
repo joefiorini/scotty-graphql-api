@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e1c82d4c55b737648c5e314da4a72dbbc5d16b5f3264b9c68775b5489c3497d2
+-- hash: 41d69c84f2591d939c008b8f40b5aa3124ced9df9d235226e6dda088da2e23d7
 
 name:           haskell-graphql-api-test
 version:        0.1.0
@@ -29,9 +29,11 @@ library
   build-depends:
       base >=4.9 && <5
     , graphql-api
+    , postgresql-simple
     , protolude
     , scotty
     , text
+    , wai-cors
   exposed-modules:
       GrapqlAPITest
   other-modules:
@@ -50,9 +52,11 @@ executable haskell-graphql-api-test
     , graphql-api
     , haskell-graphql-api-test
     , optparse-applicative
+    , postgresql-simple
     , protolude
     , scotty
     , text
+    , wai-cors
   other-modules:
       Paths_haskell_graphql_api_test
   default-language: Haskell2010
@@ -69,11 +73,13 @@ test-suite tasty
     , base >=4.9 && <5
     , graphql-api
     , haskell-graphql-api-test
+    , postgresql-simple
     , protolude
     , scotty
     , tasty
     , tasty-hspec
     , text
+    , wai-cors
   other-modules:
       Paths_haskell_graphql_api_test
   default-language: Haskell2010

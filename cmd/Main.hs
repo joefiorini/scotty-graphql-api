@@ -4,12 +4,13 @@ module Main
   ( main
   ) where
 
-import Protolude hiding (decodeUtf8)
+import Protolude hiding (decodeUtf8, Text)
 import Web.Scotty
 
 -- import Options.Applicative
 --        (ParserInfo, execParser, fullDesc, header, helper, info, progDesc)
 
+import Network.Wai.Middleware.Cors
 import Data.Aeson (encode)
 import Data.Text.Lazy (toStrict)
 import Data.Text.Lazy.Encoding (decodeUtf8)
@@ -32,6 +33,7 @@ import GrapqlAPITest (-- Config(..),
 
 main :: IO ()
 main = scotty 3000 $ do
+  middleware simpleCors
   -- response <- app
   -- putStrLn $ encode $ toValue response
   post "/graphql" $ do

@@ -19,6 +19,8 @@ dependencies:
   - graphql-api
   - scotty
   - text
+  - postgresql-simple
+  - wai-cors
 
 library:
   source-dirs: src

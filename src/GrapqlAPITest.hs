@@ -9,9 +9,9 @@ module GrapqlAPITest
   , app
   ) where
 
-import Protolude
+import Protolude hiding (Text)
 
-import Data.Text.Lazy (Text)
+import Data.Text (Text)
 
 import GraphQL
 import GraphQL.API
