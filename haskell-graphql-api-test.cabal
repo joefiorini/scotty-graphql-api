@@ -1,0 +1,79 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e1c82d4c55b737648c5e314da4a72dbbc5d16b5f3264b9c68775b5489c3497d2
+
+name:           haskell-graphql-api-test
+version:        0.1.0
+synopsis:       Testing out how easy it is to build a graphql api with haskell graphql-api library
+description:    Please see README.md
+category:       Tools
+homepage:       https://github.com/joefiorini/haskell-graphql-api-test#readme
+bug-reports:    https://github.com/joefiorini/haskell-graphql-api-test/issues
+maintainer:     Joe Fiorini <joe@joefiorini.com>
+license:        GPL
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+source-repository head
+  type: git
+  location: https://github.com/joefiorini/haskell-graphql-api-test
+
+library
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude OverloadedStrings RecordWildCards
+  ghc-options: -Wall -Werror
+  build-depends:
+      base >=4.9 && <5
+    , graphql-api
+    , protolude
+    , scotty
+    , text
+  exposed-modules:
+      GrapqlAPITest
+  other-modules:
+      Paths_haskell_graphql_api_test
+  default-language: Haskell2010
+
+executable haskell-graphql-api-test
+  main-is: Main.hs
+  hs-source-dirs:
+      cmd
+  default-extensions: NoImplicitPrelude OverloadedStrings RecordWildCards
+  ghc-options: -Wall -Werror
+  build-depends:
+      aeson
+    , base >=4.9 && <5
+    , graphql-api
+    , haskell-graphql-api-test
+    , optparse-applicative
+    , protolude
+    , scotty
+    , text
+  other-modules:
+      Paths_haskell_graphql_api_test
+  default-language: Haskell2010
+
+test-suite tasty
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs:
+      tests
+  default-extensions: NoImplicitPrelude OverloadedStrings RecordWildCards
+  ghc-options: -Wall -Werror
+  build-depends:
+      QuickCheck
+    , base >=4.9 && <5
+    , graphql-api
+    , haskell-graphql-api-test
+    , protolude
+    , scotty
+    , tasty
+    , tasty-hspec
+    , text
+  other-modules:
+      Paths_haskell_graphql_api_test
+  default-language: Haskell2010

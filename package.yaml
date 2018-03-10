@@ -1,0 +1,43 @@
+name: haskell-graphql-api-test
+version: 0.1.0
+synopsis: Testing out how easy it is to build a graphql api with haskell graphql-api library
+description: Please see README.md
+maintainer: Joe Fiorini <joe@joefiorini.com>
+license: GPL
+github: joefiorini/haskell-graphql-api-test
+category: Tools
+
+ghc-options: -Wall -Werror
+default-extensions:
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - RecordWildCards
+
+dependencies:
+  - base >= 4.9 && < 5
+  - protolude
+  - graphql-api
+  - scotty
+  - text
+
+library:
+  source-dirs: src
+
+executables:
+  haskell-graphql-api-test:
+    main: Main.hs
+    source-dirs: cmd
+    dependencies:
+      - haskell-graphql-api-test
+      - optparse-applicative
+      - aeson
+
+tests:
+  tasty:
+    main: Main.hs
+    source-dirs: tests
+    dependencies:
+      - haskell-graphql-api-test
+      - QuickCheck
+      - tasty
+      - tasty-hspec
